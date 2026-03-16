@@ -11,16 +11,17 @@
         :root { --bg: #0b0f19; --card: #161b2a; --accent: #00d2ff; }
         body { background-color: var(--bg); color: #e2e8f0; font-family: 'Inter', sans-serif; }
         
-        /* Forzamos que los títulos sean blancos */
         h1, h2, h3, .card-title { color: #ffffff !important; }
         
-        .project-img { height: 250px; object-fit: cover; border-bottom: 3px solid var(--accent); }
+        .project-img { height: 250px; object-fit: cover; border-bottom: 3px solid var(--accent); cursor: zoom-in; }
         .card-custom { background: var(--card); border: none; transition: 0.3s; }
         .card-custom:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,210,255,0.2); }
         .tech-pill { background: rgba(0, 210, 255, 0.1); color: var(--accent); border: 1px solid var(--accent); font-size: 0.8rem; }
         
-        /* Clase para textos pequeños en blanco */
         .text-white-small { color: #ffffff; font-size: 0.85rem; }
+        
+        /* Ajuste para que las imágenes del carrusel se vean bien */
+        .carousel-item img { max-height: 80vh; object-fit: contain; background: #000; }
     </style>
 </head>
 <body>
@@ -38,7 +39,10 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card card-custom overflow-hidden shadow-lg">
-                <img src="img/dashboard.png" class="card-img-top project-img" alt="Dashboard Rosario Inventory">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#galeriaModal">
+                    <img src="img/dashboard.png" class="card-img-top project-img" alt="Dashboard Rosario Inventory">
+                    <div class="text-center bg-info text-dark small fw-bold py-1">Hacé clic para ver capturas completas</div>
+                </a>
                 
                 <div class="card-body p-4">
                     <div class="d-flex justify-content-between align-items-start mb-3">
@@ -77,19 +81,20 @@
                         <a href="manual_tecnico.html" class="btn btn-outline-light" target="_blank">
                             <i class="bi bi-file-pdf"></i> Leer Manual
                         </a>
-                      <div class="d-flex gap-2">
-        <a href="https://wa.me/5493774446304?text=Hola%20Facundo,%20vi%20tu%20portafolio%20y%20me%20interesa%20una%20demo%20del%20sistema%20de%20stock." 
-           class="btn btn-success fw-bold" 
-           target="_blank">
-            <i class="bi bi-whatsapp"></i> Contactar para Demo
-        </a>
-    </div>
+                        <div class="d-flex gap-2">
+                            <a href="https://wa.me/5493774446304?text=Hola%20Facundo,%20vi%20tu%20portafolio%20y%20me%20interesa%20una%20demo%20del%20sistema%20de%20stock." 
+                               class="btn btn-success fw-bold" 
+                               target="_blank">
+                                <i class="bi bi-whatsapp"></i> Contactar para Demo
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   <section class="mt-5">
+
+    <section class="mt-5">
         <h2 class="text-center mb-4 fw-bold">Habilidades Técnicas</h2>
         <div class="row g-3 justify-content-center text-center">
             <div class="col-6 col-md-3">
@@ -120,9 +125,43 @@
     </section>
 </main>
 
+<div class="modal fade" id="galeriaModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content bg-dark border-info">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title text-white">Capturas del Sistema</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/dashboard.png" class="d-block w-100" alt="Dashboard">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/ventas.png" class="d-block w-100" alt="Ventas">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/reportes.png" class="d-block w-100" alt="Reportes">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="text-center py-4 border-top border-secondary opacity-75">
     <small class="text-white">Desarrollado en Rosario de Lerma, Salta &copy; 2026</small>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
