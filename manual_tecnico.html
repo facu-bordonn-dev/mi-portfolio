@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Manual de Usuario - Rosario Inventory Pro</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
+        .page { padding: 50px; max-width: 800px; margin: auto; }
+        .header { text-align: center; border-bottom: 2px solid #00d2ff; padding-bottom: 20px; margin-bottom: 40px; }
+        .header h1 { color: #0056b3; margin: 0; font-size: 28px; }
+        .header p { color: #666; font-size: 14px; }
+        h2 { color: #00d2ff; border-left: 5px solid #00d2ff; padding-left: 10px; margin-top: 30px; }
+        .feature-box { background: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .badge { background: #00d2ff; color: white; padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        table, th, td { border: 1px solid #dee2e6; }
+        th, td { padding: 12px; text-align: left; }
+        th { background-color: #f1f3f5; }
+        .footer { margin-top: 50px; text-align: center; font-size: 12px; color: #aaa; border-top: 1px solid #eee; pt-20; }
+        @media print { .no-print { display: none; } }
+    </style>
+</head>
+<body>
+
+<div class="no-print" style="background: #ffc107; padding: 10px; text-align: center; font-weight: bold;">
+    INSTRUCCIONES: Presiona CTRL + P y selecciona "Guardar como PDF" para generar tu archivo.
+</div>
+
+<div class="page">
+    <div class="header">
+        <h1>ROSARIO INVENTORY PRO v1.0</h1>
+        <p>Manual de Usuario y Documentación Técnica del Sistema</p>
+    </div>
+
+    <p>Este documento detalla el funcionamiento del sistema de gestión desarrollado para <strong>Rosario Empresa</strong>, optimizado para el control de stock, ventas y auditoría interna.</p>
+
+    <h2>1. Arquitectura del Sistema</h2>
+    <div class="feature-box">
+        <strong>Tecnologías utilizadas:</strong>
+        <ul>
+            <li><span class="badge">PHP 8.2</span> Lógica de servidor y procesamiento de datos.</li>
+            <li><span class="badge">MySQL</span> Base de datos relacional para almacenamiento seguro.</li>
+            <li><span class="badge">PDO</span> Conexión segura con sentencias preparadas contra inyección SQL.</li>
+            <li><span class="badge">Bootstrap 5</span> Interfaz adaptativa y profesional.</li>
+        </ul>
+    </div>
+
+    <h2>2. Módulos Principales</h2>
+    
+    <h3>A. Dashboard de Control</h3>
+    <p>Panel central que muestra en tiempo real la salud financiera del inventario:</p>
+    <ul>
+        <li><strong>Variedad:</strong> Total de productos únicos registrados (SKUs).</li>
+        <li><strong>Valorización:</strong> Cálculo automático del valor total de la mercadería en estantería.</li>
+        <li><strong>Alertas de Stock:</strong> Notificación visual automática cuando un producto tiene menos de 5 unidades.</li>
+    </ul>
+
+    <h3>B. Gestión de Ventas</h3>
+    <p>Módulo de salida de mercadería con validación de existencia:</p>
+    <ul>
+        <li>Descuento automático de stock tras confirmación.</li>
+        <li>Registro en tabla de ventas para historial de ingresos.</li>
+        <li>Bloqueo de ventas si la cantidad solicitada supera el stock físico.</li>
+    </ul>
+
+    <h2>3. Reportes y Auditoría</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo de Reporte</th>
+                <th>Descripción</th>
+                <th>Formato</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Inventario Total</td>
+                <td>Listado completo de productos y valores.</td>
+                <td>Excel (.xls)</td>
+            </tr>
+            <tr>
+                <td>Rango de Fechas</td>
+                <td>Detalle de ventas en un periodo específico.</td>
+                <td>Excel (.xls)</td>
+            </tr>
+            <tr>
+                <td>Historial Log</td>
+                <td>Auditoría de quién realizó cada movimiento.</td>
+                <td>Vista Web</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>4. Seguridad y Roles</h2>
+    <p>El sistema implementa dos niveles de acceso:</p>
+    <ul>
+        <li><strong>Administrador:</strong> Control total, edición de productos, eliminación y gestión de usuarios.</li>
+        <li><strong>Empleado:</strong> Visualización de stock y registro de ventas únicamente.</li>
+    </ul>
+
+    <div class="footer">
+        Desarrollado por Tu Nombre - Rosario de Lerma, Salta, Argentina - 2026
+    </div>
+</div>
+
+</body>
+</html>
