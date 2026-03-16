@@ -13,15 +13,19 @@
         
         h1, h2, h3, .card-title { color: #ffffff !important; }
         
-        .project-img { height: 250px; object-fit: cover; border-bottom: 3px solid var(--accent); cursor: zoom-in; }
+        .project-img-container { position: relative; }
+        .project-img { height: 250px; object-fit: cover; border-bottom: 3px solid var(--accent); cursor: zoom-in; width: 100%; }
+        .zoom-icon { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.5); color: white; padding: 5px; rounded: 5px; pointer-events: none; }
+
         .card-custom { background: var(--card); border: none; transition: 0.3s; }
         .card-custom:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,210,255,0.2); }
         .tech-pill { background: rgba(0, 210, 255, 0.1); color: var(--accent); border: 1px solid var(--accent); font-size: 0.8rem; }
         
         .text-white-small { color: #ffffff; font-size: 0.85rem; }
         
-        /* Ajuste para que las imágenes del carrusel se vean bien */
-        .carousel-item img { max-height: 80vh; object-fit: contain; background: #000; }
+        /* Ajuste para que las imágenes del carrusel se vean bien y completas */
+        .carousel-item img { max-height: 85vh; object-fit: contain; background: #000; }
+        .carousel-caption { background: rgba(0,0,0,0.7); border-radius: 10px; bottom: 20px; padding: 10px 20px; }
     </style>
 </head>
 <body>
@@ -39,9 +43,10 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card card-custom overflow-hidden shadow-lg">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#galeriaModal">
-                    <img src="img/dashboard.png" class="card-img-top project-img" alt="Dashboard Rosario Inventory">
-                    <div class="text-center bg-info text-dark small fw-bold py-1">Hacé clic para ver capturas completas</div>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#galeriaModal" class="project-img-container d-block">
+                    <img src="img/image_2.png" class="card-img-top project-img" alt="Dashboard Rosario Inventory">
+                    <i class="bi bi-search zoom-icon"></i>
+                    <div class="text-center bg-info text-dark small fw-bold py-1">Hacé clic para ver la galería completa (Admin y Empleado)</div>
                 </a>
                 
                 <div class="card-body p-4">
@@ -129,27 +134,79 @@
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content bg-dark border-info">
             <div class="modal-header border-secondary">
-                <h5 class="modal-title text-white">Capturas del Sistema</h5>
+                <h5 class="modal-title text-white">Galería del Sistema - Vistas de Usuario</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-0">
-                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                    </div>
+
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="img/dashboard.png" class="d-block w-100" alt="Dashboard">
+                            <img src="img/image_2.png" class="d-block w-100" alt="Dashboard Administrador">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>🔧 Vista General del Administrador</h5>
+                                <p>Panel de control con KPIs financieros, alertas de stock crítico y acceso completo.</p>
+                            </div>
                         </div>
+                        
                         <div class="carousel-item">
-                            <img src="img/ventas.png" class="d-block w-100" alt="Ventas">
+                            <img src="img/image_4.png" class="d-block w-100" alt="Crear Producto">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>🔧 Ingreso de Mercancía (Admin)</h5>
+                                <p>Formulario modal para dar de alta nuevos productos con stock inicial y precio.</p>
+                            </div>
                         </div>
+
                         <div class="carousel-item">
-                            <img src="img/reportes.png" class="d-block w-100" alt="Reportes">
+                            <img src="img/image_5.png" class="d-block w-100" alt="Gestión de Usuarios">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>🔧 Control de Personal (Admin)</h5>
+                                <p>Módulo exclusivo para crear usuarios, asignar roles (Admin/Empleado) y cambiar contraseñas.</p>
+                            </div>
                         </div>
+
+                        <div class="carousel-item">
+                            <img src="img/image_8.png" class="d-block w-100" alt="Dashboard Empleado">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>👤 Vista Limitada del Empleado</h5>
+                                <p>El empleado solo ve el stock y los botones para registrar ventas.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/image_9.png" class="d-block w-100" alt="Registrar Venta">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>👤 Registrar una Venta (Empleado)</h5>
+                                <p>Ventana de confirmación de venta con validación automática de stock disponible.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/image_7.png" class="d-block w-100" alt="Historial de Auditoría">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>🔧 Auditoría de Movimientos (Admin)</h5>
+                                <p>Registro detallado de 'quién, qué y cuándo'. Muestra ventas, ediciones y eliminaciones.</p>
+                            </div>
+                        </div>
+
                     </div>
+
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
                     </button>
                 </div>
             </div>
