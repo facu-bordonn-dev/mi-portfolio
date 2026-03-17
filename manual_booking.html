@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Técnico - BookingSystem v1.0</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root { --bg: #0b0f19; --card: #161b2a; --accent: #00d2ff; }
+        body { background-color: var(--bg); color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.6; }
+        .accent-text { color: var(--accent); }
+        .card-step { background: var(--card); border-left: 4px solid var(--accent); border-radius: 8px; margin-bottom: 20px; transition: 0.3s; }
+        .card-step:hover { background: #1c2237; }
+        .badge-tech { background: rgba(0, 210, 255, 0.1); color: var(--accent); border: 1px solid var(--accent); }
+        pre { background: #000; color: #00ff00; padding: 15px; border-radius: 8px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header class="py-5 border-bottom border-secondary mb-5">
+    <div class="container text-center">
+        <span class="badge badge-tech mb-2 px-3 py-2">DOCUMENTACIÓN TÉCNICA</span>
+        <h1 class="display-5 fw-bold text-white">BookingSystem <span class="accent-text">v1.0</span></h1>
+        <p class="lead text-white-50">Manual de Integración y Usuario Final</p>
+    </div>
+</header>
+
+<main class="container mb-5">
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <div class="sticky-top" style="top: 20px;">
+                <h4 class="text-white mb-3">Especificaciones</h4>
+                <ul class="list-group list-group-flush border-0">
+                    <li class="list-group-item bg-transparent text-white-50 border-secondary px-0">
+                        <i class="bi bi-cpu accent-text me-2"></i> Backend: PHP 8.2 (PDO)
+                    </li>
+                    <li class="list-group-item bg-transparent text-white-50 border-secondary px-0">
+                        <i class="bi bi-database accent-text me-2"></i> DB: MySQL Relacional
+                    </li>
+                    <li class="list-group-item bg-transparent text-white-50 border-secondary px-0">
+                        <i class="bi bi-phone accent-text me-2"></i> Notificación: WhatsApp Link API
+                    </li>
+                    <li class="list-group-item bg-transparent text-white-50 border-secondary px-0">
+                        <i class="bi bi-shield-lock accent-text me-2"></i> Auth: Bcrypt Password Hash
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <h2 class="text-white mb-4">Guía de Funcionamiento</h2>
+
+            <div class="card-step p-4">
+                <h5 class="text-white"><i class="bi bi-1-circle-fill accent-text me-2"></i> Registro de Clientes</h5>
+                <p class="text-secondary small">
+                    El sistema captura el nombre, correo y <strong>teléfono</strong> del usuario. El número telefónico es validado mediante expresiones regulares para asegurar que el Administrador pueda contactarlo sin errores de formato.
+                </p>
+            </div>
+
+            <div class="card-step p-4">
+                <h5 class="text-white"><i class="bi bi-2-circle-fill accent-text me-2"></i> Gestión de la Agenda</h5>
+                <p class="text-secondary small">
+                    Desde el Panel Admin, el encargado visualiza los "Turnos de Hoy" y los "Pendientes". Cada turno tiene un estado (Pendiente, Confirmado, Completado, Cancelado) que permite filtrar la carga de trabajo diaria.
+                </p>
+            </div>
+
+            <div class="card-step p-4">
+                <h5 class="text-white"><i class="bi bi-3-circle-fill accent-text me-2"></i> Confirmación y WhatsApp</h5>
+                <p class="text-secondary small">
+                    Al confirmar un turno, se habilita dinámicamente el botón de <strong>Notificar</strong>. Este genera un enlace URL dinámico que abre WhatsApp Web o la App móvil con un mensaje personalizado:
+                </p>
+                <pre>Hola [Cliente]! Te confirmo tu turno para [Servicio] el día [Fecha]...</pre>
+            </div>
+
+            <h2 class="text-white mt-5 mb-4">Instalación Local</h2>
+            <div class="bg-dark p-4 rounded border border-secondary">
+                <ol class="text-white-50 small">
+                    <li>Importar el archivo <code>database.sql</code> en phpMyAdmin.</li>
+                    <li>Configurar los parámetros de conexión en <code>config/db.php</code>.</li>
+                    <li>Asegurarse de tener habilitada la extensión PDO en el servidor Apache.</li>
+                    <li>Acceder vía <code>localhost/booking-system</code>.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="text-center py-5 border-top border-secondary mt-5">
+    <p class="small text-muted">Facu Bordon - Rosario de Lerma, Salta &copy; 2026</p>
+</footer>
+
+</body>
+</html>
