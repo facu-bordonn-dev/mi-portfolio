@@ -1,28 +1,108 @@
+
 <!DOCTYPE html> 
 <html lang="es">
-<head >
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Nombre | Desarrollador Backend</title>
+    <title>PROG_DEV | Especialista en Sistemas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        :root { --bg: #0b0f19; --card: #161b2a; --accent: #00d2ff; }
-        body { background-color: var(--bg); color: #e2e8f0; font-family: 'Inter', sans-serif; }
-        .project-img { height: 250px; object-fit: cover; border-bottom: 3px solid var(--accent); }
-        .card-custom { background: var(--card); border: none; transition: 0.3s; }
-        .card-custom:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,210,255,0.2); }
-        .tech-pill { background: rgba(0, 210, 255, 0.1); color: var(--accent); border: 1px solid var(--accent); font-size: 0.8rem; }
+        :root { 
+            --bg: #0b0f19; 
+            --card: #161b2a; 
+            --accent: #00d2ff; 
+            --text: #e2e8f0;
+        }
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: 'Inter', sans-serif; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header { border-bottom: 1px solid rgba(0, 210, 255, 0.1); }
+        .project-img { height: 200px; object-fit: cover; border-bottom: 2px solid var(--accent); }
+        .card-custom { 
+            background: var(--card); 
+            border: 1px solid rgba(255,255,255,0.05); 
+            transition: 0.3s ease-in-out; 
+        }
+        .card-custom:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 10px 30px rgba(0,210,255,0.15); 
+            border-color: var(--accent);
+        }
+        .tech-pill { 
+            background: rgba(0, 210, 255, 0.1); 
+            color: var(--accent); 
+            border: 1px solid var(--accent); 
+            font-size: 0.75rem; 
+            margin-right: 5px;
+        }
+        /* Ajuste para que el carrusel se vea perfecto en móviles */
+        .carousel-item img {
+            max-height: 70vh;
+            object-fit: contain;
+            background-color: #000;
+        }
+        footer { margin-top: auto; }
     </style>
 </head>
 <body>
 
-<header class="py-5 text-center bg-dark bg-gradient">
+<header class="py-5 text-center bg-dark bg-gradient shadow-sm">
     <div class="container">
         <h1 class="display-4 fw-bold">PROG_<span style="color: var(--accent);">DEV</span></h1>
-        <p class="lead">Especialista en Soluciones de Inventario y Lógica de Negocio</p>
+        <p class="lead opacity-75">Especialista en Soluciones de Inventario y Lógica de Negocio</p>
+        <div class="mt-3">
+            <span class="badge rounded-pill bg-secondary px-3">Backend Developer</span>
+            <span class="badge rounded-pill bg-info text-dark px-3">PHP & MySQL</span>
+        </div>
     </div>
 </header>
+
+<main class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <h3 class="mb-4 text-center"><i class="bi bi-code-slash"></i> Proyectos Destacados</h3>
+            
+            <div class="card card-custom shadow-lg">
+                <img src="img/image_2.png" class="card-img-top project-img" alt="Sistema de Inventario">
+                <div class="card-body">
+                    <h5 class="card-title text-info fw-bold">Sistema de Gestión de Stock Profesional</h5>
+                    <p class="card-text small opacity-75">
+                        Control total de mercancía, gestión de roles (Admin/Empleado), auditoría de movimientos y reportes de ventas. Optimizado para alto rendimiento.
+                    </p>
+                    
+                    <div class="mb-4">
+                        <span class="badge tech-pill">PHP 8.x</span>
+                        <span class="badge tech-pill">MySQL</span>
+                        <span class="badge tech-pill">Bootstrap 5</span>
+                        <span class="badge tech-pill">PDO</span>
+                    </div>
+
+                    <button class="btn btn-outline-info w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#galeriaModal">
+                        <i class="bi bi-eye"></i> EXPLORAR SISTEMA
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 text-center">
+        <div class="col-12">
+            <p class="text-uppercase small tracking-widest opacity-50">Stack Tecnológico</p>
+            <div class="d-flex justify-content-center gap-4 fs-3 text-info">
+                <i class="bi bi-database" title="MySQL"></i>
+                <i class="bi bi-code-square" title="PHP"></i>
+                <i class="bi bi-bootstrap" title="Bootstrap"></i>
+                <i class="bi bi-git" title="Git"></i>
+            </div>
+        </div>
+    </div>
+</main>
 
 <div class="modal fade" id="galeriaModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -35,71 +115,69 @@
                 <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="5"></button>
                     </div>
 
-                    <div class="carousel-inner">
+                    <div class="carousel-inner text-center">
                         <div class="carousel-item active">
-                            <img src="img/image_2.png" class="d-block w-100" alt="Dashboard Administrador">
-                            <div class="carousel-caption d-none d-md-block">
+                            <img src="img/image_2.png" class="d-block w-100" alt="Dashboard">
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
                                 <h5>🔧 Vista General del Administrador</h5>
-                                <p>Panel de control con KPIs financieros y alertas de stock.</p>
+                                <p>Panel de control con KPIs y alertas de stock.</p>
                             </div>
                         </div>
                         
                         <div class="carousel-item">
-                            <img src="img/image_4.png" class="d-block w-100" alt="Crear Producto">
-                            <div class="carousel-caption d-none d-md-block">
+                            <img src="img/image_4.png" class="d-block w-100" alt="Ingreso">
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
                                 <h5>🔧 Ingreso de Mercancía</h5>
-                                <p>Formulario para dar de alta nuevos productos.</p>
+                                <p>Formulario de alta con validación de datos.</p>
                             </div>
                         </div>
 
                         <div class="carousel-item">
-                            <img src="img/image_5.png" class="d-block w-100" alt="Gestión de Usuarios">
-                            <div class="carousel-caption d-none d-md-block">
+                            <img src="img/image_5.png" class="d-block w-100" alt="Usuarios">
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
                                 <h5>🔧 Control de Personal</h5>
-                                <p>Módulo para asignar roles (Admin/Empleado).</p>
+                                <p>Gestión de roles y permisos de acceso.</p>
                             </div>
                         </div>
 
                         <div class="carousel-item">
-                            <img src="img/image_8.png" class="d-block w-100" alt="Dashboard Empleado">
-                            <div class="carousel-caption d-none d-md-block">
+                            <img src="img/image_8.png" class="d-block w-100" alt="Empleado">
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
                                 <h5>👤 Vista del Empleado</h5>
-                                <p>Interfaz simplificada para ventas rápidas.</p>
+                                <p>Interfaz optimizada para el punto de venta.</p>
                             </div>
                         </div>
 
                         <div class="carousel-item">
-                            <img src="img/image_9.png" class="d-block w-100" alt="Registrar Venta">
-                            <div class="carousel-caption d-none d-md-block">
+                            <img src="img/image_9.png" class="d-block w-100" alt="Ventas">
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
                                 <h5>👤 Registro de Ventas</h5>
-                                <p>Validación automática de stock disponible.</p>
+                                <p>Descuento automático de stock en tiempo real.</p>
                             </div>
                         </div>
 
                         <div class="carousel-item">
-                            <img src="img/image_7.png" class="d-block w-100" alt="Historial de Auditoría">
-                            <div class="carousel-caption d-none d-md-block">
+                            <img src="img/image_7.png" class="d-block w-100" alt="Auditoría">
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
                                 <h5>🔧 Auditoría de Movimientos</h5>
-                                <p>Registro detallado de acciones realizadas en el sistema.</p>
+                                <p>Log detallado de seguridad y movimientos de almacén.</p>
                             </div>
                         </div>
                     </div>
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
+                        <span class="carousel-control-prev-icon"></span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
+                        <span class="carousel-control-next-icon"></span>
                     </button>
                 </div>
             </div>
@@ -107,8 +185,10 @@
     </div>
 </div>
 
-<footer class="text-center py-4 border-top border-secondary opacity-75">
-    <small class="text-white">Desarrollado en Rosario de Lerma, Salta &copy; 2026</small>
+<footer class="text-center py-4 border-top border-secondary opacity-50">
+    <small>Desarrollado en Rosario de Lerma, Salta &copy; 2026 | PROG_DEV</small>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
