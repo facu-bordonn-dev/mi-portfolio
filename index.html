@@ -46,6 +46,15 @@
             object-fit: contain;
             background-color: #000;
         }
+
+.card-text { 
+    color: #ffffff !important; /* Forzamos el blanco puro */
+    opacity: 1 !important;     /* Quitamos cualquier transparencia */
+}
+
+.card-title {
+    color: var(--accent) !important;
+}
         footer { margin-top: auto; }
         .btn-wsp { background-color: #25d366; border: none; color: white; }
         .btn-wsp:hover { background-color: #1ebe57; color: white; }
@@ -74,7 +83,7 @@
                 <img src="img/image_2.png" class="card-img-top project-img" alt="Sistema de Inventario">
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title text-info fw-bold text-center mb-3">Gestión de Stock Profesional</h5>
-                    <p class="card-text small opacity-75 mb-3">
+                    <p class="card-text text-white small opacity-75 mb-3">
                         Control de inventario, gestión de roles (Admin/Empleado), auditoría de movimientos y reportes de ventas. Optimizado para alto rendimiento en comercios.
                     </p>
                     <div class="mb-4 text-center mt-auto">
